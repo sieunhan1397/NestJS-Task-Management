@@ -6,17 +6,17 @@ POST http://localhost:3000/tasks
 Content-Type: application/json
 
 {
-    "title": "",
-    "description": ""
+    "title": "abc",
+    "description": "def"
 }
 
 ###
 DELETE http://localhost:3000/tasks/7d0985d0-351a-11eb-b966-6920bb74512c
 
 ###
-PATCH http://localhost:3000/tasks/bbedf330-3533-11eb-8e1d-2119e15e694e/status
+PATCH http://localhost:3000/tasks/1a5154d0-360b-11eb-b0a3-c113f1ff01bb/status
 Content-Type: application/json
 
 {
-    "status": "DONE"
+    "status": "done"
 }
