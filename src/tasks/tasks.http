@@ -1,20 +1,20 @@
-GET http://localhost:3000/tasks?status=OPENz
+GET http://localhost:3000/tasks
 ###
-GET http://localhost:3000/tasks/8bc19920-3518-11eb-a1de-c9af12421971
+GET http://localhost:3000/tasks/1
 ###
 POST http://localhost:3000/tasks
 Content-Type: application/json
 
 {
-    "title": "abc",
-    "description": "def"
+    "title": "Love",
+    "description": "Phi Van"
 }
 
 ###
-DELETE http://localhost:3000/tasks/7d0985d0-351a-11eb-b966-6920bb74512c
+DELETE http://localhost:3000/tasks/2
 
 ###
-PATCH http://localhost:3000/tasks/1a5154d0-360b-11eb-b0a3-c113f1ff01bb/status
+PATCH http://localhost:3000/tasks/3/status
 Content-Type: application/json
 
 {
