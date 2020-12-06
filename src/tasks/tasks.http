@@ -1,4 +1,4 @@
-GET http://localhost:3000/tasks
+GET http://localhost:3000/tasks?search=js
 ###
 GET http://localhost:3000/tasks/1
 ###
@@ -19,4 +19,13 @@ Content-Type: application/json
 
 {
     "status": "done"
+}
+
+###
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "username": "nhan",
+    "password": "123456"
 }
