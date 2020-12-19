@@ -15,16 +15,26 @@ export class UserRepository extends Repository<User> {
 
       const user = new User();
       user.username = username;
-      user.salt = await bcrypt.getSalt();
+      user.salt = await bcrypt.genSalt();
       user.password = await this.hashPassword(password, user.salt);
       await user.save();
     } catch (error) {
+      console.log(error);
       if (error.code === '23505') {
         throw new ConflictException('Username already exists');
       } else {
         throw new InternalServerErrorException();
       }
     }
+  }
+
+  async signIn(authCredentialsDto: AuthCredentialsDto): Promise<string> {
+    const { username, password } = authCredentialsDto;
+    const user = await this.findOne({ username });
+    if (user && (await user.checkPassword(password))) {
+      return username;
+    }
+    return null;
   }
 
   private async hashPassword(password: string, salt: string): Promise<string> {
